@@ -5,7 +5,7 @@ Created on Fri Sep 28 16:03:05 2018
 @author: gateway
 """
 import matplotlib
-matplotlib.use('Agg')
+#matplotlib.use('Agg')
 
 from sklearn import datasets
 from sklearn.cluster import KMeans
@@ -20,17 +20,22 @@ dataset = datasets.load_iris()
 data = dataset.data
 target  = dataset.target
 
-clf = KMeans(n_clusters=8)
+clf = KMeans(n_clusters=3)
 
 result = clf.fit(data)
 
-fig = plt.figure(1, figsize=(4, 3))
+
+fig = plt.figure(1, figsize=(16, 12))
 ax = Axes3D(fig, rect=[0, 0, .95, 1], elev=48, azim=134)
 clf.fit(data)
+centers = clf.cluster_centers_
 labels = clf.labels_
+f_lables = labels.astype(np.float)
+
+ax.scatter(centers[:,3],centers[:,0],centers[:,2],marker = 'x')
 
 ax.scatter(data[:, 3], data[:, 0], data[:, 2],
-               c=labels.astype(np.float), edgecolor='k')
+               c=labels, edgecolor='k')
 
 #ax.w_xaxis.set_ticklabels([])
 #ax.w_yaxis.set_ticklabels([])
