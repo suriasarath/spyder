@@ -45,7 +45,7 @@ ax = fig.add_subplot(1, 2, 1, projection='3d')
 ax.plot_trisurf(x, y, z, triangles=tri.triangles, cmap=plt.cm.Spectral)
 ax.set_zlim(-2, 2)
 
-
+                         
 #============
 # Second plot
 #============
