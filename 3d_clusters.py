@@ -22,7 +22,7 @@ target  = dataset.target
 
 clf = KMeans(n_clusters=3)
 
-result = clf.fit(data)
+#esult = clf.fit(data)
 
 
 fig = plt.figure(1, figsize=(16, 12))
